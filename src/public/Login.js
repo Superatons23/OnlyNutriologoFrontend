@@ -32,7 +32,7 @@ formLogin.addEventListener("submit", async function (e) {
     });
 
     const result = await response.json();
-    console.log(result);
+
     if (
       result == "El email no esta registrado" ||
       result == "Contraseña incorrecta"
@@ -40,9 +40,11 @@ formLogin.addEventListener("submit", async function (e) {
       const alert = document.getElementById("alertLogin");
       alert.style.display = "block";
     } else {
+      localStorage.setItem("token", result.token);
       window.open("/src/views/ProfilePaciente.html", "_self");
     }
   } else {
+    localStorage.setItem("token", result.token);
     window.open("/src/views/ProfileNutriologo.html", "_self");
   }
 });
