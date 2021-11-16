@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <title>SignUp</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../public/css/main.css">
+  </head>
+  <body>
+     <!--NAV VAR-->
+  
+     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+       
+       
+      <div class="mx-auto order-0">
+          <a class="navbar-brand mx-auto" href="#">Home</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+      </div>
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="./index.html">Log in</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="./SignUp.html" >Sign Up</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+    <div class="container">
+      <div class="col-sm-6 mx-auto">
+        <div class="card mt-5">
+          <div class="card-body">
+            <h1 class="text-center">
+              <span class="fa fa-sign-in"></span>SignUp
+            </h1>
+
+            <div id="alertNutriologo" class="alert alert-danger">
+              <h6>Correo no valido</h6>
+            </div>
+            <form id="formNutriologo" >
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" name="nombre" class="form-control" required/>
+                  </div>
+              <div class="form-group">
+                <label for="edad">Edad</label>
+                <input type="number" name="edad" class="form-control" min="18" required />
+              </div>
+              <div class="form-group">
+                <label for="genero">Genero</label>
+                <input type="text" name="genero" class="form-control" required/>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" required/>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" required/>
+              </div>
+              <input type="submit" class="btn btn-dark btn-lg" />
+            </form>
+
+            <hr />
+            <div class="text-center">
+              <p>have an account?<a href="./Login.html">Login</a></p>
+              <p>Or Go<a href="./index.html">Home</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  <script src="../public/SignUpNutriologo.js"></script>
+</html>
