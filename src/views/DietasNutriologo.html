@@ -1,0 +1,242 @@
+<html>
+  <head>
+    <title>Nutriologo</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../public/css/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css"
+      rel="stylesheet"
+    />
+    
+    <script src="../public/DietasNutriologo.js"></script>
+  
+  </head>
+  <body>
+    <div class="d-flex">
+      <div id="sidebar-container" class="bg-dark">
+        <div class="logo"><h4 class="text-light font-weight-bold">Nutriologo</h4></div>
+        <div class="menu">
+          <a href="DashboardNutriologo.html" id="nav-dashboard" class="d-block text-light p-3"><i class="icon ion-md-apps mr-2 lead"></i>Dashboard</a>
+          <a href="ClientesNutriologo.html" class="d-block text-light p-3"><i class="icon ion-md-people mr-2 lead"></i></ion-icon>Clientes</a>
+          <a href="DietasNutriologo.html" class="d-block text-light p-3"><i class="icon ion-md-nutrition mr-2 lead"></i></ion-icon>Dietas</a>
+          <a href="ProfileNutriologo.html" class="d-block text-light p-3"><i class="icon ion-md-person mr-2 lead"></i></ion-icon>Perfil</a>
+          <a href="#" class="d-block text-light p-3"><i class="icon ion-md-settings mr-2 lead"></i></ion-icon>Configuration</a>
+        </div>
+      </div>
+      <!--NAV VAR-->
+      <div class="w-100">
+       <!--NAV VAR-->
+  
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+    
+       
+        <div class="mx-auto order-0">
+          
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+               
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="../assets/avatar.png" class="rounded-circle avatar ">
+                  <span id="username">nombre de usuario</span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Mi perfil</a>
+                  
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Cerrar Sesion</a>
+                </div>
+              </li>
+            </ul>
+        </div>
+    
+    </nav>
+
+<section id="content-perfil" class="container-fluid">
+  <div class="container">
+    <div class="row mb-2 justify-content-end">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dietaForm" id="addButton">
+        Agregar Dieta<i class="icon ion-md-add-circle ml-2 lead"></i></ion-icon>
+      </button>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-center">
+        
+      </div>
+          <table id="dietas-table" class="table table-hover table-bordered ">
+            <thead>
+              <tr>
+                <th scope="col">Cliente</th>
+                <th scope="col">Fecha de Inicio</th>
+                <th scope="col">Fecha de Fin</th>
+                <th scope="col">Calorias</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="dietas-table-body">
+            </tbody>
+          </table>
+    </div>
+  </div>
+</section>
+      </div>
+    </div>
+
+<section>
+  <!-- Modal add dieta-->
+<div class="modal fade" id="dietaForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Dieta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="numCalorias">Numero de Calorias</label>
+            <input type="number" class="form-control" id="numCalorias" aria-describedby="calories" placeholder="1000">
+          </div>
+          <div class="form-group">
+            <label for="fechaInicio">Fecha de Inicio</label>
+            <input type="date" class="form-control" id="fechaInicio" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="fechaFin">Fecha de Fin</label>
+            <input type="date" class="form-control" id="fechaFin" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="cliente">Cliente</label>
+            <select class="form-control" id="cliente-dropdown">
+            </select>
+          <button type="submit" class="btn btn-primary mt-5">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+  
+<!-- Modal edit dieta-->
+<div class="modal fade" id="editDietaForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar Dieta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="numCalorias">Numero de Calorias</label>
+            <input type="number" class="form-control" id="numCalorias1" aria-describedby="calories" placeholder="1000">
+          </div>
+          <div class="form-group">
+            <label for="fechaInicio">Fecha de Inicio</label>
+            <input type="date" class="form-control" id="fechaInicio1" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="fechaFin">Fecha de Fin</label>
+            <input type="date" class="form-control" id="fechaFin1" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="cliente">Cliente</label>
+            <select class="form-control" id="cliente-dropdown1">
+            </select>
+          <button type="submit" class="btn btn-primary mt-5">Guardar</button>
+        </form>
+        <section id="comidas-body">
+          <h5 class="text-center mt-1">Comidas <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#comidaForm" id="addButtonComida">
+            <i class="icon ion-md-add-circle lead"></i></ion-icon>
+          </button></h5>
+          <table id="comidas-table" class="table table-hover table-bordered ">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">Dia</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="comidas-table-body">
+            </tbody>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+<section>
+  <!-- Modal add comida-->
+<div class="modal fade" id="comidaForm" tabindex="-2" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Agregar Comida</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="nombreComida">Nombre</label>
+            <input type="text" class="form-control" id="nombreComida" aria-describedby="comida" placeholder="nombre">
+          </div>
+          <div class="form-group">
+            <label for="descripcionComida">Descripcion</label>
+            <input type="text" class="form-control" id="descripcionComida" aria-describedby="comida" placeholder="descripcion">
+          </div>
+          <div class="form-group">
+            <label for="tipoComida">Tipo</label>
+            <select class="form-control" id="tipoComida">
+              <option value="DESAYUNO">Desayuno</option>
+              <option value="ALMUERZO">Almuerzo</option>
+              <option value="CENA">Cena</option>
+            </select>
+          <div class="form-group">
+            <label for="dia">Dia</label>
+            <select class="form-control" id="dia-dropdown">
+              <option value="LUNES">Lunes</option>
+              <option value="MARTES">Martes</option>
+              <option value="MIERCOLES">Miercoles</option>
+              <option value="JUEVES">Jueves</option>
+              <option value="VIERNES">Viernes</option>
+              <option value="SABADO">Sabado</option>
+              <option value="DOMINGO">Domingo</option>
+            </select>
+          <button type="button" class="btn btn-primary mt-5" id="btnGuardarComida">Guardar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+  </body>
+   <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</html>

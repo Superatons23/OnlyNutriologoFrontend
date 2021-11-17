@@ -16,3 +16,9 @@ a:hover {
 .avatar {
   max-width: 35px;
 }
+
+.profile {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}

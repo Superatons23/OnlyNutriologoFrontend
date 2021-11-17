@@ -41,10 +41,16 @@ formLogin.addEventListener("submit", async function (e) {
       alert.style.display = "block";
     } else {
       localStorage.setItem("token", result.token);
+      localStorage.setObject("nutriologo", result);
       window.open("/src/views/ProfilePaciente.html", "_self");
     }
   } else {
     localStorage.setItem("token", result.token);
+    localStorage.setObject("nutriologo", result);
+
     window.open("/src/views/ProfileNutriologo.html", "_self");
   }
 });
+Storage.prototype.setObject = function (key, value) {
+  this.setItem(key, JSON.stringify(value));
+};
